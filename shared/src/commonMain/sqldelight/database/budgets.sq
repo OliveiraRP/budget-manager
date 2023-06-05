@@ -1,0 +1,28 @@
+CREATE TABLE budget(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    total_money REAL NOT NULL
+);
+
+getBudgets:
+SELECT *
+FROM budget
+ORDER BY name DESC;
+
+insertBudget:
+INSERT OR REPLACE
+INTO budget(
+    id,
+    name,
+    total_money
+)
+VALUES(?, ?, ?);
+
+CREATE TABLE moneyTransaction(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    budget_id INTEGER NOT NULL,
+    type iNTEGER NOT NULL,
+    value REAL NOT NULL,
+    timestamp INTEGER NOT NULL,
+    FOREIGN KEY (budget_id) REFERENCES budget(id)
+);
