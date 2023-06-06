@@ -1,4 +1,4 @@
-package com.oliveirarp.budgetmanager.android.presentation
+package com.oliveirarp.budgetmanager.android.budgets.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -43,7 +43,6 @@ class BudgetsViewModel(
     fun onEvent(event: BudgetsEvent) {
         when (event) {
             BudgetsEvent.AddBudget -> addBudget()
-            is BudgetsEvent.OpenSelectedBudget -> TODO("Create budget screen")
             else -> {}
         }
     }
@@ -58,14 +57,11 @@ class BudgetsViewModel(
             when (result) {
                 is Resource.Success -> {
                     // TODO: Check if there must be a state update here
-                    // Probably to update BudgetState.budgetList
                 }
 
                 is Resource.Error -> {
                     // TODO: Error handling
                 }
-
-                else -> {}
             }
         }
     }

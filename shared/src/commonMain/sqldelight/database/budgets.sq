@@ -7,7 +7,7 @@ CREATE TABLE budget(
 getBudgets:
 SELECT *
 FROM budget
-ORDER BY name DESC;
+ORDER BY name ASC;
 
 insertBudget:
 INSERT OR REPLACE
@@ -21,7 +21,7 @@ VALUES(?, ?, ?);
 CREATE TABLE moneyTransaction(
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     budget_id INTEGER NOT NULL,
-    type iNTEGER NOT NULL,
+    type INTEGER NOT NULL,
     value REAL NOT NULL,
     timestamp INTEGER NOT NULL,
     FOREIGN KEY (budget_id) REFERENCES budget(id)
