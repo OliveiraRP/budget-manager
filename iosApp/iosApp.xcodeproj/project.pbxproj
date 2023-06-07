@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,12 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		491F3686B1A67D88115B9860 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9740059032063BAA61BBCDC /* Pods_iosApp.framework */; };
+		534777902A30B1D8003F8819 /* BudgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347778B2A30B1D8003F8819 /* BudgetList.swift */; };
+		534777912A30B1D8003F8819 /* BudgetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347778C2A30B1D8003F8819 /* BudgetItem.swift */; };
+		534777922A30B1D8003F8819 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347778F2A30B1D8003F8819 /* Colors.swift */; };
+		534777942A30B88C003F8819 /* IOSBudgetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534777932A30B88C003F8819 /* IOSBudgetsViewModel.swift */; };
+		534777982A30B8B9003F8819 /* BudgetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534777972A30B8B9003F8819 /* BudgetsScreen.swift */; };
+		5347779C2A30C2AE003F8819 /* AddBudgetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347779B2A30C2AE003F8819 /* AddBudgetItem.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -18,6 +24,12 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		5347778B2A30B1D8003F8819 /* BudgetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetList.swift; sourceTree = "<group>"; };
+		5347778C2A30B1D8003F8819 /* BudgetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetItem.swift; sourceTree = "<group>"; };
+		5347778F2A30B1D8003F8819 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		534777932A30B88C003F8819 /* IOSBudgetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSBudgetsViewModel.swift; sourceTree = "<group>"; };
+		534777972A30B8B9003F8819 /* BudgetsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsScreen.swift; sourceTree = "<group>"; };
+		5347779B2A30C2AE003F8819 /* AddBudgetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetItem.swift; sourceTree = "<group>"; };
 		6071255E43B638089E6672BB /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,13 +58,56 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		534777882A30B1D8003F8819 /* budgets */ = {
+			isa = PBXGroup;
+			children = (
+				534777892A30B1D8003F8819 /* presentation */,
+			);
+			path = budgets;
+			sourceTree = "<group>";
+		};
+		534777892A30B1D8003F8819 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5347778A2A30B1D8003F8819 /* components */,
+				534777932A30B88C003F8819 /* IOSBudgetsViewModel.swift */,
+				534777972A30B8B9003F8819 /* BudgetsScreen.swift */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		5347778A2A30B1D8003F8819 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				5347778B2A30B1D8003F8819 /* BudgetList.swift */,
+				5347778C2A30B1D8003F8819 /* BudgetItem.swift */,
+				5347779B2A30C2AE003F8819 /* AddBudgetItem.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		5347778D2A30B1D8003F8819 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				5347778E2A30B1D8003F8819 /* presentation */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		5347778E2A30B1D8003F8819 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5347778F2A30B1D8003F8819 /* Colors.swift */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
 		54B024B5D5BC5AD505E84CEF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				6071255E43B638089E6672BB /* Pods-iosApp.debug.xcconfig */,
 				B5F53015406A06886703110C /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -77,6 +132,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				534777882A30B1D8003F8819 /* budgets */,
+				5347778D2A30B1D8003F8819 /* core */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -209,7 +266,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				534777982A30B8B9003F8819 /* BudgetsScreen.swift in Sources */,
+				534777922A30B1D8003F8819 /* Colors.swift in Sources */,
+				534777912A30B1D8003F8819 /* BudgetItem.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				534777902A30B1D8003F8819 /* BudgetList.swift in Sources */,
+				5347779C2A30C2AE003F8819 /* AddBudgetItem.swift in Sources */,
+				534777942A30B88C003F8819 /* IOSBudgetsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,9 +404,17 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-framework",
+					"\"shared\"",
+					"-lsqlite3",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -361,9 +432,17 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-framework",
+					"\"shared\"",
+					"-lsqlite3",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
