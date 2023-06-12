@@ -3,6 +3,7 @@ package com.oliveirarp.budgetmanager.budgets.presentation
 import com.oliveirarp.budgetmanager.budgets.domain.AddBudget
 import com.oliveirarp.budgetmanager.budgets.domain.BudgetDataSource
 import com.oliveirarp.budgetmanager.budgets.domain.GetBudgets
+import com.oliveirarp.budgetmanager.core.domain.BudgetGroup
 import com.oliveirarp.budgetmanager.core.util.Resource
 import com.oliveirarp.budgetmanager.core.util.toCommonStateFlow
 import kotlinx.coroutines.CoroutineScope
@@ -27,14 +28,30 @@ class BudgetsViewModel(
         budgetDataSource.getBudgets()
     ) { state, budgets ->
         if (state.budgets != budgets) {
-            state.copy(
-                budgets = budgets.mapNotNull { item ->
+            val allBudgets: List<UiBudget> =
+                budgets.mapNotNull { item ->
                     UiBudget(
                         id = item.id ?: return@mapNotNull null,
+                        budgetGroup = item.budgetGroup,
                         name = item.name,
                         totalMoney = item.totalMoney
                     )
                 }
+
+            val allBudgetGroups: List<UiBudgetGroup> =
+                BudgetGroup.values().map { group ->
+                    UiBudgetGroup(
+                        id = group.id,
+                        name = group.groupName,
+                        budgetList = allBudgets.filter { budget ->
+                            budget.budgetGroup.id == group.id
+                        }
+                    )
+                }
+
+            state.copy(
+                budgets = allBudgets,
+                budgetGroups = allBudgetGroups
             )
         } else state
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), BudgetsState())
@@ -52,6 +69,7 @@ class BudgetsViewModel(
             // TODO: Implement actual add budget logic
             val result = addBudget.execute(
                 name = "New budget",
+                budgetGroup = BudgetGroup.BANK,
                 totalMoney = 420.00
             )
             when (result) {

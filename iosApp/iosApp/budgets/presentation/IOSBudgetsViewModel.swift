@@ -18,14 +18,24 @@ extension BudgetsScreen {
         private let viewModel: BudgetsViewModel
 
         @Published var state: BudgetsState = .init(
-            budgets: [UiBudget(id: 0, name: "", totalMoney: 0)])
+            budgets: [UiBudget(id: 0, budgetGroup: BudgetGroup.available, name: "", totalMoney: 0)],
+            budgetGroups: [UiBudgetGroup(id: 0, name: "", budgetList: [])]
+        )
         private var handle: DisposableHandle?
 
-        init(budgetDatasource: BudgetDataSource, getBudgetsUseCase: GetBudgets, addBudgetUseCase: AddBudget) {
+        init(budgetDatasource: BudgetDataSource,
+             getBudgetsUseCase: GetBudgets,
+             addBudgetUseCase: AddBudget)
+        {
             budgetDataSource = budgetDatasource
             self.getBudgetsUseCase = getBudgetsUseCase
             self.addBudgetUseCase = addBudgetUseCase
-            viewModel = BudgetsViewModel(getBudgets: getBudgetsUseCase, addBudget: addBudgetUseCase, budgetDataSource: budgetDataSource, coroutineScope: nil)
+            viewModel = BudgetsViewModel(
+                getBudgets: getBudgetsUseCase,
+                addBudget: addBudgetUseCase,
+                budgetDataSource: budgetDataSource,
+                coroutineScope: nil
+            )
         }
 
         func onEvent(event: BudgetsEvent) {

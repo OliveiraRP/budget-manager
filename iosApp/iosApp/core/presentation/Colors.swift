@@ -30,8 +30,8 @@ extension Color {
 
     // TODO: Light mode colors
     static let primary = Color(light: .silverLakeBlue, dark: .silverLakeBlue)
-    static let background = Color(light: .richBlack, dark: .richBlack)
     static let onPrimary = Color(light: .platinum, dark: .platinum)
+    static let background = Color(light: .richBlack, dark: .richBlack)
     static let onBackground = Color(light: .platinum, dark: .platinum)
     static let surface = Color(light: .oxfordBlue, dark: .oxfordBlue)
     static let onSurface = Color(light: .platinum, dark: .platinum)

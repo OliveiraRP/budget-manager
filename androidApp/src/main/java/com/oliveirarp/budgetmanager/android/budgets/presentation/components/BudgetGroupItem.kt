@@ -1,11 +1,10 @@
 package com.oliveirarp.budgetmanager.android.budgets.presentation.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
@@ -18,18 +17,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.oliveirarp.budgetmanager.budgets.presentation.UiBudget
+import com.oliveirarp.budgetmanager.budgets.presentation.UiBudgetGroup
 import com.oliveirarp.budgetmanager.core.presentation.Colors
 
 @Composable
-fun BudgetList(
-    group: String,
-    budgetList: List<UiBudget>,
+fun BudgetGroupItem(
+    group: UiBudgetGroup,
     onSelectBudget: (UiBudget) -> Unit,
     onAddBudget: () -> Unit,
     modifier: Modifier = Modifier
 
 ) {
-    LazyColumn(
+    Column(
         modifier = modifier
             .shadow(
                 elevation = 10.dp,
@@ -38,19 +37,19 @@ fun BudgetList(
             .clip(RoundedCornerShape(20.dp))
             .background(Color(Colors.OxfordBlue))
     ) {
-        item {
-            Row(
-                modifier = modifier
-                    .padding(start = 15.dp, end = 15.dp, top = 15.dp, bottom = 15.dp)
-            ) {
-                Text(
-                    text = group,
-                    fontWeight = FontWeight(600),
-                    fontSize = 25.sp
-                )
-            }
+
+        Row(
+            modifier = modifier
+                .padding(start = 15.dp, end = 15.dp, top = 15.dp, bottom = 15.dp)
+        ) {
+            Text(
+                text = group.name,
+                fontWeight = FontWeight(600),
+                fontSize = 25.sp
+            )
         }
-        items(budgetList) { budget ->
+
+        group.budgetList.forEach { budget ->
             BudgetItem(
                 budget = budget,
                 onClick = {
@@ -67,12 +66,13 @@ fun BudgetList(
             )
 
         }
-        item {
-            AddBudgetItem(
-                onClick = onAddBudget,
-                modifier = Modifier
-                    .fillMaxWidth()
-            )
-        }
+
+        AddBudgetItem(
+            onClick = onAddBudget,
+            modifier = Modifier
+                .fillMaxWidth()
+        )
+
     }
+
 }

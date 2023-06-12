@@ -1,5 +1,6 @@
 CREATE TABLE budget(
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    budget_group INTEGER NOT NULL,
     name TEXT NOT NULL,
     total_money REAL NOT NULL
 );
@@ -13,10 +14,11 @@ insertBudget:
 INSERT OR REPLACE
 INTO budget(
     id,
+    budget_group,
     name,
     total_money
 )
-VALUES(?, ?, ?);
+VALUES(?, ?, ?, ?);
 
 CREATE TABLE moneyTransaction(
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,

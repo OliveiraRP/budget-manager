@@ -29,6 +29,7 @@ class SqlDelightBudgetDataSource(
     override suspend fun insertBudgetItem(item: BudgetItem) {
         return queries.insertBudget(
             id = item.id,
+            budget_group = item.budgetGroup.id,
             name = item.name,
             total_money = item.totalMoney
         )

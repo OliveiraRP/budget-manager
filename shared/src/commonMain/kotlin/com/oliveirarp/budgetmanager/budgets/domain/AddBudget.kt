@@ -1,5 +1,6 @@
 package com.oliveirarp.budgetmanager.budgets.domain
 
+import com.oliveirarp.budgetmanager.core.domain.BudgetGroup
 import com.oliveirarp.budgetmanager.core.util.Resource
 
 class AddBudget(
@@ -8,12 +9,14 @@ class AddBudget(
 
     suspend fun execute(
         name: String,
+        budgetGroup: BudgetGroup,
         totalMoney: Double
     ): Resource<String> {
         return try {
             budgetDataSource.insertBudgetItem(
                 BudgetItem(
                     id = null,
+                    budgetGroup = budgetGroup,
                     name = name,
                     totalMoney = totalMoney
                 )
