@@ -11,10 +11,9 @@ import SwiftUI
 
 struct BudgetGroupItem: View {
     var group: UiBudgetGroup
-    var onAddBudget: () -> Void
 
     var body: some View {
-        VStack {
+        ZStack {
             VStack {
                 HStack {
                     Text(group.name)
@@ -23,24 +22,23 @@ struct BudgetGroupItem: View {
                         .padding([.top, .bottom], 12)
                     Spacer()
                 }
+
                 ForEach(group.budgetList, id: \.self.id) { budget in
                     BudgetItem(
                         budget: budget
                     )
-                    Divider()
-                        .overlay(Color.background)
-                }
-                AddBudgetItem(
-                    onClick: {
-                        onAddBudget()
+                    if group.budgetList.last != budget {
+                        Divider()
+                            .background(Color.background)
                     }
-                )
+                }
             }
             .padding([.top, .bottom], 12)
             .padding([.leading, .trailing], 18)
+            .background(Color.surface)
+            .cornerRadius(12)
+            .shadow(radius: 12)
         }
-        .background(Color.surface)
-        .cornerRadius(12)
     }
 }
 
@@ -56,8 +54,7 @@ struct BudgetList_Previews: PreviewProvider {
                     name: "New Budget",
                     totalMoney: 420.0
                 )]
-            ),
-            onAddBudget: {}
+            )
         )
     }
 }

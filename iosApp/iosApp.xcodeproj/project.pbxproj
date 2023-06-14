@@ -11,12 +11,14 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		491F3686B1A67D88115B9860 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9740059032063BAA61BBCDC /* Pods_iosApp.framework */; };
+		5335AAB72A38E0A000D4AEC6 /* AddBudgetPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335AAB62A38E0A000D4AEC6 /* AddBudgetPopover.swift */; };
 		534777902A30B1D8003F8819 /* BudgetGroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347778B2A30B1D8003F8819 /* BudgetGroupItem.swift */; };
 		534777912A30B1D8003F8819 /* BudgetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347778C2A30B1D8003F8819 /* BudgetItem.swift */; };
 		534777922A30B1D8003F8819 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347778F2A30B1D8003F8819 /* Colors.swift */; };
 		534777942A30B88C003F8819 /* IOSBudgetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534777932A30B88C003F8819 /* IOSBudgetsViewModel.swift */; };
 		534777982A30B8B9003F8819 /* BudgetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534777972A30B8B9003F8819 /* BudgetsScreen.swift */; };
-		5347779C2A30C2AE003F8819 /* AddBudgetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347779B2A30C2AE003F8819 /* AddBudgetItem.swift */; };
+		53ACAFCE2A3B7569000960ED /* BudgetGroupDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ACAFCD2A3B7569000960ED /* BudgetGroupDropDown.swift */; };
+		53ACAFD02A3B7579000960ED /* BudgetGroupDropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ACAFCF2A3B7579000960ED /* BudgetGroupDropDownItem.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,12 +26,14 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		5335AAB62A38E0A000D4AEC6 /* AddBudgetPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetPopover.swift; sourceTree = "<group>"; };
 		5347778B2A30B1D8003F8819 /* BudgetGroupItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetGroupItem.swift; sourceTree = "<group>"; };
 		5347778C2A30B1D8003F8819 /* BudgetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetItem.swift; sourceTree = "<group>"; };
 		5347778F2A30B1D8003F8819 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		534777932A30B88C003F8819 /* IOSBudgetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSBudgetsViewModel.swift; sourceTree = "<group>"; };
 		534777972A30B8B9003F8819 /* BudgetsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsScreen.swift; sourceTree = "<group>"; };
-		5347779B2A30C2AE003F8819 /* AddBudgetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetItem.swift; sourceTree = "<group>"; };
+		53ACAFCD2A3B7569000960ED /* BudgetGroupDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetGroupDropDown.swift; sourceTree = "<group>"; };
+		53ACAFCF2A3B7579000960ED /* BudgetGroupDropDownItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetGroupDropDownItem.swift; sourceTree = "<group>"; };
 		6071255E43B638089E6672BB /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,9 +83,11 @@
 		5347778A2A30B1D8003F8819 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				5335AAB62A38E0A000D4AEC6 /* AddBudgetPopover.swift */,
 				5347778B2A30B1D8003F8819 /* BudgetGroupItem.swift */,
 				5347778C2A30B1D8003F8819 /* BudgetItem.swift */,
-				5347779B2A30C2AE003F8819 /* AddBudgetItem.swift */,
+				53ACAFCD2A3B7569000960ED /* BudgetGroupDropDown.swift */,
+				53ACAFCF2A3B7579000960ED /* BudgetGroupDropDownItem.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -266,13 +272,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53ACAFD02A3B7579000960ED /* BudgetGroupDropDownItem.swift in Sources */,
+				53ACAFCE2A3B7569000960ED /* BudgetGroupDropDown.swift in Sources */,
+				5335AAB72A38E0A000D4AEC6 /* AddBudgetPopover.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				534777982A30B8B9003F8819 /* BudgetsScreen.swift in Sources */,
 				534777922A30B1D8003F8819 /* Colors.swift in Sources */,
 				534777912A30B1D8003F8819 /* BudgetItem.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				534777902A30B1D8003F8819 /* BudgetGroupItem.swift in Sources */,
-				5347779C2A30C2AE003F8819 /* AddBudgetItem.swift in Sources */,
 				534777942A30B88C003F8819 /* IOSBudgetsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

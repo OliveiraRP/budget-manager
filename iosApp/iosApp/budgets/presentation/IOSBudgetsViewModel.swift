@@ -18,8 +18,11 @@ extension BudgetsScreen {
         private let viewModel: BudgetsViewModel
 
         @Published var state: BudgetsState = .init(
-            budgets: [UiBudget(id: 0, budgetGroup: BudgetGroup.available, name: "", totalMoney: 0)],
-            budgetGroups: [UiBudgetGroup(id: 0, name: "", budgetList: [])]
+            budgets: [UiBudget(id: 0, budgetGroup: BudgetGroup.other, name: "", totalMoney: 0)],
+            budgetGroups: [UiBudgetGroup(id: 0, name: "", budgetList: [])],
+            addBudgetName: "",
+            addBudgetGroup: BudgetGroup.other,
+            addBudgetTotalMoney: 0.0
         )
         private var handle: DisposableHandle?
 

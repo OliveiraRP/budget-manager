@@ -24,7 +24,6 @@ import com.oliveirarp.budgetmanager.core.presentation.Colors
 fun BudgetGroupItem(
     group: UiBudgetGroup,
     onSelectBudget: (UiBudget) -> Unit,
-    onAddBudget: () -> Unit,
     modifier: Modifier = Modifier
 
 ) {
@@ -64,15 +63,6 @@ fun BudgetGroupItem(
                 modifier = modifier
                     .padding(start = 12.dp, end = 12.dp)
             )
-
         }
-
-        AddBudgetItem(
-            onClick = onAddBudget,
-            modifier = Modifier
-                .fillMaxWidth()
-        )
-
     }
-
 }

@@ -23,6 +23,7 @@ struct BudgetItem: View {
             .padding([.top, .bottom], 12)
             .foregroundColor(Color.onSurface)
         }
+        .buttonStyle(.plain)
     }
 }
 
