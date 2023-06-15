@@ -89,7 +89,11 @@ class BudgetsViewModel(
             )
             when (result) {
                 is Resource.Success -> {
-                    // TODO: Check if there must be a state update here
+                    _state.update { it.copy(
+                        addBudgetName = "",
+                        addBudgetGroup = BudgetGroup.AVAILABLE,
+                        addBudgetTotalMoney = 0.0
+                    ) }
                 }
 
                 is Resource.Error -> {

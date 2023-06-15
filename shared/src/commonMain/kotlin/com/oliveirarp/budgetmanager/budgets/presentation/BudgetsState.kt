@@ -7,6 +7,6 @@ data class BudgetsState(
     val budgetGroups: List<UiBudgetGroup> = emptyList(),
 
     val addBudgetName: String = "",
-    val addBudgetGroup: BudgetGroup = BudgetGroup.OTHER,
+    val addBudgetGroup: BudgetGroup = BudgetGroup.AVAILABLE,
     val addBudgetTotalMoney: Double = 0.0
 )

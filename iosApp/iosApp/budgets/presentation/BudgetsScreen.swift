@@ -49,7 +49,8 @@ struct BudgetsScreen: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .popover(isPresented: $showAddBudgetPopover) {
                         AddBudgetPopover(
-                            onAddBudget: { viewModel.onEvent(event: BudgetsEvent.AddBudget()) },
+                            onAddBudget: { viewModel.onEvent(event: BudgetsEvent.AddBudget());
+                                showAddBudgetPopover = false },
                             onChooseBudgetGroup: { group in viewModel.onEvent(event: BudgetsEvent.AddBudgetChangeGroup(group: group)) },
                             name: Binding(get: { viewModel.state.addBudgetName }, set: { value in
                                 viewModel.onEvent(event: BudgetsEvent.AddBudgetChangeName(name: value))
