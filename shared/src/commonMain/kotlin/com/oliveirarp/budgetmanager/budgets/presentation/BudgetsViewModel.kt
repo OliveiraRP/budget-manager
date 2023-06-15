@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class BudgetsViewModel(
@@ -59,18 +60,32 @@ class BudgetsViewModel(
 
     fun onEvent(event: BudgetsEvent) {
         when (event) {
-            BudgetsEvent.AddBudget -> addBudget()
+            BudgetsEvent.AddBudget -> addBudget(state.value)
+            is BudgetsEvent.AddBudgetChangeName -> {
+                _state.update { it.copy(
+                    addBudgetName = event.name
+                ) }
+            }
+            is BudgetsEvent.AddBudgetChangeGroup -> {
+                _state.update { it.copy(
+                    addBudgetGroup = event.group
+                ) }
+            }
+            is BudgetsEvent.AddBudgetChangeTotalMoney -> {
+                _state.update { it.copy(
+                    addBudgetTotalMoney = event.totalMoney
+                ) }
+            }
             else -> {}
         }
     }
 
-    private fun addBudget() {
+    private fun addBudget(state: BudgetsState) {
         viewModelScope.launch {
-            // TODO: Implement actual add budget logic
             val result = addBudget.execute(
-                name = "New budget",
-                budgetGroup = BudgetGroup.BANK,
-                totalMoney = 420.00
+                name = state.addBudgetName,
+                budgetGroup = state.addBudgetGroup,
+                totalMoney = state.addBudgetTotalMoney
             )
             when (result) {
                 is Resource.Success -> {

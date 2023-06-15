@@ -30,8 +30,7 @@ fun BudgetsScreen(
                 if (budgetGroup.budgetList.isNotEmpty()) {
                     BudgetGroupItem(
                         group = budgetGroup,
-                        onSelectBudget = { onEvent(BudgetsEvent.OpenSelectedBudget(it)) },
-                        onAddBudget = { onEvent(BudgetsEvent.AddBudget) }
+                        onSelectBudget = { onEvent(BudgetsEvent.OpenSelectedBudget(it)) }
                     )
                 }
             }

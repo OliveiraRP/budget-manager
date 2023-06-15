@@ -1,5 +1,7 @@
 package com.oliveirarp.budgetmanager.core.domain
 
+import com.oliveirarp.budgetmanager.budgets.presentation.UiBudgetGroup
+
 enum class BudgetGroup(
     val id: Long,
     val groupName: String
@@ -16,5 +18,8 @@ enum class BudgetGroup(
             return values().find { it.id == id }
                 ?: throw IllegalArgumentException("Invalid budget group")
         }
+
+        val allBudgetGroups: List<BudgetGroup>
+            get() = BudgetGroup.values().toList()
     }
 }
