@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,7 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		491F3686B1A67D88115B9860 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9740059032063BAA61BBCDC /* Pods_iosApp.framework */; };
-		534777902A30B1D8003F8819 /* BudgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347778B2A30B1D8003F8819 /* BudgetList.swift */; };
+		534777902A30B1D8003F8819 /* BudgetGroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347778B2A30B1D8003F8819 /* BudgetGroupItem.swift */; };
 		534777912A30B1D8003F8819 /* BudgetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347778C2A30B1D8003F8819 /* BudgetItem.swift */; };
 		534777922A30B1D8003F8819 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347778F2A30B1D8003F8819 /* Colors.swift */; };
 		534777942A30B88C003F8819 /* IOSBudgetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534777932A30B88C003F8819 /* IOSBudgetsViewModel.swift */; };
@@ -24,7 +24,7 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
-		5347778B2A30B1D8003F8819 /* BudgetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetList.swift; sourceTree = "<group>"; };
+		5347778B2A30B1D8003F8819 /* BudgetGroupItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetGroupItem.swift; sourceTree = "<group>"; };
 		5347778C2A30B1D8003F8819 /* BudgetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetItem.swift; sourceTree = "<group>"; };
 		5347778F2A30B1D8003F8819 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		534777932A30B88C003F8819 /* IOSBudgetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSBudgetsViewModel.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		5347778A2A30B1D8003F8819 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				5347778B2A30B1D8003F8819 /* BudgetList.swift */,
+				5347778B2A30B1D8003F8819 /* BudgetGroupItem.swift */,
 				5347778C2A30B1D8003F8819 /* BudgetItem.swift */,
 				5347779B2A30C2AE003F8819 /* AddBudgetItem.swift */,
 			);
@@ -179,8 +179,9 @@
 		7555FF73242A565900829871 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = orgName;
 				TargetAttributes = {
 					7555FF7A242A565900829871 = {
@@ -270,7 +271,7 @@
 				534777922A30B1D8003F8819 /* Colors.swift in Sources */,
 				534777912A30B1D8003F8819 /* BudgetItem.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
-				534777902A30B1D8003F8819 /* BudgetList.swift in Sources */,
+				534777902A30B1D8003F8819 /* BudgetGroupItem.swift in Sources */,
 				5347779C2A30C2AE003F8819 /* AddBudgetItem.swift in Sources */,
 				534777942A30B88C003F8819 /* IOSBudgetsViewModel.swift in Sources */,
 			);

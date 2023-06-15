@@ -10,6 +10,7 @@ struct ContentView: View {
             getBudgetsUseCase: appModule.getBudgetsUseCase,
             addBudgetUseCase: appModule.addBudgetUseCase
         )
+        .background(Color.background)
     }
 }
 

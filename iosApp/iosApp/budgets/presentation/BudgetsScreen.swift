@@ -15,7 +15,10 @@ struct BudgetsScreen: View {
     private var addBudgetUseCase: AddBudget
     @ObservedObject var viewModel: IOSBudgetsViewModel
 
-    init(budgetDataSource: BudgetDataSource, getBudgetsUseCase: GetBudgets, addBudgetUseCase: AddBudget) {
+    init(budgetDataSource: BudgetDataSource,
+         getBudgetsUseCase: GetBudgets,
+         addBudgetUseCase: AddBudget)
+    {
         self.budgetDataSource = budgetDataSource
         self.getBudgetsUseCase = getBudgetsUseCase
         self.addBudgetUseCase = addBudgetUseCase
@@ -27,21 +30,27 @@ struct BudgetsScreen: View {
     }
 
     var body: some View {
-        VStack {
-            BudgetList(
-                budgetList: viewModel.state.budgets,
-                onAddBudget: {
-                    viewModel.onEvent(event: BudgetsEvent.AddBudget())
+        ScrollView {
+            VStack {
+                ForEach(viewModel.state.budgetGroups, id: \.self.id) { group in
+                    if (!group.budgetList.isEmpty) {
+                        BudgetGroupItem(
+                            group: group,
+                            onAddBudget: {
+                                viewModel.onEvent(event: BudgetsEvent.AddBudget())
+                            }
+                        )
+                    }
                 }
-            )
-        }
-        .shadow(radius: 12)
-        .padding(18)
-        .onAppear {
-            viewModel.startObserving()
-        }
-        .onDisappear {
-            viewModel.dispose()
+            }
+            .shadow(radius: 12)
+            .padding(18)
+            .onAppear {
+                viewModel.startObserving()
+            }
+            .onDisappear {
+                viewModel.dispose()
+            }
         }
     }
 }

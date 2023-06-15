@@ -29,7 +29,12 @@ struct BudgetItem: View {
 struct BudgetItem_Previews: PreviewProvider {
     static var previews: some View {
         BudgetItem(
-            budget: UiBudget(id: 0, name: "New Budget", totalMoney: 420.0)
+            budget: UiBudget(
+                id: 0,
+                budgetGroup: BudgetGroup.available,
+                name: "New Budget",
+                totalMoney: 420.0
+            )
         )
     }
 }
