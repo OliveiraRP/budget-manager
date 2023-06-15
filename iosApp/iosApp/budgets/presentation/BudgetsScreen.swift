@@ -73,6 +73,7 @@ struct BudgetsScreen: View {
                             BudgetGroupItem(
                                 group: group
                             )
+                            .padding(.top, 14)
                         }
                     }
                 }
