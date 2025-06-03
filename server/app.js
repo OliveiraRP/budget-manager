@@ -7,6 +7,9 @@ app.use(cors());
 
 const db = require("./models");
 
+const apiRoutes = require("./routes/Users");
+app.use("/users", apiRoutes);
+
 app.get("/ping", (req, res) => res.json({ message: "pong" }));
 
 app.use((req, res) => {
