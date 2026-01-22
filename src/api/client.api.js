@@ -8,17 +8,13 @@ async function request(endpoint, options = {}) {
     ...options.headers,
   };
 
-  if (token) {
+  if (token && token !== "null") {
     headers["Authorization"] = `Bearer ${token}`;
   }
 
-  const config = {
+  const response = await fetch(`${ENV.BACKEND_URL}/api/v1${endpoint}`, {
     ...options,
     headers,
-  };
-
-  const response = await fetch(`${ENV.BACKEND_URL}/api/v1${endpoint}`, {
-    ...config,
   });
 
   if (!response.ok) {
