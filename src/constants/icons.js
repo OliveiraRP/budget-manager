@@ -77,4 +77,12 @@ export const WALLET_ICONS = [
   "TbBrandSpotify",
   "TbSoup",
   "TbBowlChopsticks",
+  "TbCar",
+  "TbBrush",
+  "TbGasStation",
+  "TbBrandWaze",
+  "TbMovie",
+  "TbTicket",
+  "TbTrain",
+  "TbPackageExport",
 ];
