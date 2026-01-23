@@ -103,7 +103,7 @@ export function CreateWalletPage({ onClose }) {
                     onClick={() => navigateTo(1)}
                   />
                   <InputListItemComponent
-                    text="Balance"
+                    text="Initial balance"
                     value={
                       walletData.balance ? formatEuro(walletData.balance) : ""
                     }
