@@ -32,13 +32,14 @@ export function WalletDetailsPage({ wallet, onClose }) {
 
   const transactions = useMemo(
     () => allTransactions.slice(0, 5),
-    [allTransactions]
+    [allTransactions],
   );
 
   const [walletData, setWalletData] = useState(() => ({
     name: wallet?.name || "",
     icon: wallet?.icon || "",
     color: wallet ? getColorIdFromHex(wallet.color) : "indigo",
+    initialBalance: wallet?.initialBalance || 0,
     includeNetWorth: wallet?.includeNetWorth ?? true,
     goal: wallet?.goal ?? null,
     annualBudget: wallet?.annualBudget ?? null,
@@ -48,12 +49,13 @@ export function WalletDetailsPage({ wallet, onClose }) {
 
   const handleSubmit = () => {
     const selectedHex = PALETTE_LIST.find(
-      (c) => c.id === walletData.color
+      (c) => c.id === walletData.color,
     )?.hex;
     const payload = {
       name: walletData.name,
       icon: walletData.icon,
       color: selectedHex,
+      initialBalance: walletData.initialBalance,
       includeNetWorth: walletData.includeNetWorth,
       goal: walletData.goal,
       annualBudget: walletData.annualBudget,
@@ -68,11 +70,12 @@ export function WalletDetailsPage({ wallet, onClose }) {
         switch (view) {
           case 0:
             const selectedColorHex = PALETTE_LIST.find(
-              (c) => c.id === walletData.color
+              (c) => c.id === walletData.color,
             )?.hex;
             const hasChanges =
               walletData.name !== wallet.name ||
               walletData.icon !== wallet.icon ||
+              walletData.initialBalance != wallet.initialBalance ||
               walletData.includeNetWorth != wallet.includeNetWorth ||
               walletData.goal != wallet.goal ||
               walletData.annualBudget != wallet.annualBudget ||
@@ -173,6 +176,24 @@ export function WalletDetailsPage({ wallet, onClose }) {
                   }
                 />
                 <VerticalListContainer isElevated={true}>
+                  <InputListItemComponent
+                    text="Initial balance"
+                    value={
+                      walletData.initialBalance
+                        ? formatEuro(walletData.initialBalance)
+                        : ""
+                    }
+                    placeholder="€0.00"
+                    inputMode="decimal"
+                    onChange={(val) => {
+                      const digits = val.replace(/\D/g, "");
+                      const numberValue = (Number(digits) / 100).toFixed(2);
+                      setWalletData((prev) => ({
+                        ...prev,
+                        initialBalance: numberValue,
+                      }));
+                    }}
+                  />
                   {wallet.goal !== null && (
                     <InputListItemComponent
                       text="Goal amount"
