@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { client } from "../api/client.api";
+import { api } from "../api/auth.api";
 
 export function useUserSettings() {
   return useQuery({
     queryKey: ["userSettings"],
-    queryFn: () => client.get("/settings"),
+    queryFn: () => api.get("/settings"),
   });
 }

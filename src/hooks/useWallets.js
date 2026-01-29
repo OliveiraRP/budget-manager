@@ -1,17 +1,17 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { client } from "../api/client.api";
+import { api } from "../api/auth.api";
 
 export function useWallets() {
   return useQuery({
     queryKey: ["wallets"],
-    queryFn: () => client.get("/wallets"),
+    queryFn: () => api.get("/wallets"),
   });
 }
 
 export function useCreateWallet() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (payload) => client.post("/wallets", payload),
+    mutationFn: (payload) => api.post("/wallets", payload),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["wallets"] }),
   });
 }
@@ -19,7 +19,7 @@ export function useCreateWallet() {
 export function useUpdateWallet() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, payload }) => client.patch(`/wallets/${id}`, payload),
+    mutationFn: ({ id, payload }) => api.patch(`/wallets/${id}`, payload),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["wallets"] }),
   });
 }
@@ -27,7 +27,7 @@ export function useUpdateWallet() {
 export function useArchiveWallet() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (id) => client.patch(`/wallets/${id}/archive`),
+    mutationFn: (id) => api.patch(`/wallets/${id}/archive`),
     onMutate: async (id) => {
       await queryClient.cancelQueries({ queryKey: ["wallets"] });
       const previous = queryClient.getQueryData(["wallets"]);
