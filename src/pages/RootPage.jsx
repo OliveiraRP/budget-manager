@@ -1,32 +1,28 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { ENV } from "../config/env.js";
 import { fetchCurrentUser } from "../api/auth.api";
 import MainLayout from "./MainLayout.jsx";
 
 export default function RootPage() {
-  const [user, setUser] = useState(null);
+  const {
+    data: user,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["currentUser"],
+    queryFn: fetchCurrentUser,
+    retry: false,
+    staleTime: 1000 * 60 * 5,
+  });
 
-  useEffect(() => {
-    async function checkAuth() {
-      const params = new URLSearchParams(window.location.search);
-      const urlToken = params.get("t");
+  if (isLoading) {
+    return null;
+  }
 
-      if (urlToken) {
-        localStorage.setItem("authToken", urlToken);
-        window.history.replaceState({}, document.title, "/");
-      }
-
-      const currentUser = await fetchCurrentUser();
-      if (!currentUser) {
-        window.location.href = ENV.HUB_URL;
-        return;
-      }
-
-      setUser(currentUser);
-    }
-
-    checkAuth();
-  }, []);
+  if (isError || !user) {
+    window.location.href = ENV.HUB_URL;
+    return null;
+  }
 
   return <MainLayout />;
 }
