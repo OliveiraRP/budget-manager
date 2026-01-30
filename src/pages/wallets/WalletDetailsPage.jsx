@@ -39,7 +39,7 @@ export function WalletDetailsPage({ wallet, onClose }) {
     name: wallet?.name || "",
     icon: wallet?.icon || "",
     color: wallet ? getColorIdFromHex(wallet.color) : "indigo",
-    initialBalance: wallet?.initialBalance || 0,
+    balance: wallet?.balance || 0,
     includeNetWorth: wallet?.includeNetWorth ?? true,
     goal: wallet?.goal ?? null,
     annualBudget: wallet?.annualBudget ?? null,
@@ -55,7 +55,7 @@ export function WalletDetailsPage({ wallet, onClose }) {
       name: walletData.name,
       icon: walletData.icon,
       color: selectedHex,
-      initialBalance: walletData.initialBalance,
+      balance: walletData.balance,
       includeNetWorth: walletData.includeNetWorth,
       goal: walletData.goal,
       annualBudget: walletData.annualBudget,
@@ -75,7 +75,7 @@ export function WalletDetailsPage({ wallet, onClose }) {
             const hasChanges =
               walletData.name !== wallet.name ||
               walletData.icon !== wallet.icon ||
-              walletData.initialBalance != wallet.initialBalance ||
+              walletData.balance != wallet.balance ||
               walletData.includeNetWorth != wallet.includeNetWorth ||
               walletData.goal != wallet.goal ||
               walletData.annualBudget != wallet.annualBudget ||
@@ -177,11 +177,9 @@ export function WalletDetailsPage({ wallet, onClose }) {
                 />
                 <VerticalListContainer isElevated={true}>
                   <InputListItemComponent
-                    text="Initial balance"
+                    text="Balance"
                     value={
-                      walletData.initialBalance
-                        ? formatEuro(walletData.initialBalance)
-                        : ""
+                      walletData.balance ? formatEuro(walletData.balance) : ""
                     }
                     placeholder="€0.00"
                     inputMode="decimal"
@@ -190,7 +188,7 @@ export function WalletDetailsPage({ wallet, onClose }) {
                       const numberValue = (Number(digits) / 100).toFixed(2);
                       setWalletData((prev) => ({
                         ...prev,
-                        initialBalance: numberValue,
+                        balance: numberValue,
                       }));
                     }}
                   />
